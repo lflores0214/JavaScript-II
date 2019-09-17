@@ -4,6 +4,21 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+function bottomOfTheFoodChain(primaryConsumer){
+  let primaryProducer = 'plankton'
+  console.log(`${primaryConsumer} consumes ${primaryProducer}`);
+
+  function  middleOfTheFoodChain(secondaryConsumer){
+    console.log(`${secondaryConsumer} consume ${primaryConsumer}`);
+
+    function topOfTheFoodChain(tertiaryConsumer){
+      console.log(`${tertiaryConsumer} consume ${secondaryConsumer}`)
+    }//this closes the top of the food chain
+    topOfTheFoodChain('Orcas')
+  }//this closes the middle of the food chain
+  middleOfTheFoodChain('Seals');
+};// this closes the bottom of the food chain
+bottomOfTheFoodChain('Herring');
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
