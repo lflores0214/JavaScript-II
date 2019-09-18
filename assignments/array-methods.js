@@ -99,11 +99,11 @@ console.log(emailArray);
 
 // Problem 2
 // The director needs the total of the average donation
-let averageDonation = runners.reduce(function(acc, item){
-  return acc + item.donation;
 
-}, 0);
-console.log(averageDonation / runners.length)
+let averageDonation =function(){
+  return ticketPriceTotal / runners.length;
+}
+console.log(averageDonation())
 // Problem 3
 //The director miscalculated the amount of money it takes to run a race so he  wants a list of all people who donated less than $100 so he can ask them for a bigger donation
 let cheapRunners = runners.filter(function(item){

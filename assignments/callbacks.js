@@ -124,13 +124,4 @@ function removeDuplicates(array, cb) {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
   return cb(array);
-};
-const uniqueItemArray = [];
-const duplicateRemover = (item) => {
-    for (let i =0; i<item.length; i++){
-      if(item[i] === item[i]){
-        uniqueItemArray.push();
-      }
-    }
-};
-console.log(removeDuplicates(items, duplicateRemover()))
+}
