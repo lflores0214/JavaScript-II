@@ -90,7 +90,23 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+// There has been a mixup with the location of the race. Make a new array of all the emails so you can inform the runners of the problem
+let emailArray = runners.map(function(emails){
+  return emails.email;
+})
+console.log(emailArray);
+//end of problem 1
 
 // Problem 2
+// The director needs the total of the average donation
+let averageDonation = runners.reduce(function(acc, item){
+  return acc + item.donation;
 
+}, 0);
+console.log(averageDonation / runners.length)
 // Problem 3
+//The director miscalculated the amount of money it takes to run a race so he  wants a list of all people who donated less than $100 so he can ask them for a bigger donation
+let cheapRunners = runners.filter(function(item){
+  return item.donation < 100;
+});
+console.log(cheapRunners);
