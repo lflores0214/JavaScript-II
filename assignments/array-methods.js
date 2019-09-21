@@ -58,28 +58,55 @@ const runners = [
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
 let fullNames = [];
+
+runners.forEach(function(name){
+  fullNames.push(`${name.first_name} ${name.last_name}`);
+})
+
 console.log(fullNames);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
-let firstNamesAllCaps = [];
+let firstNamesAllCaps = runners.map(function(capNames){
+  return capNames.first_name.charAt(0).toUpperCase() + capNames.first_name.slice(1);
+});
 console.log(firstNamesAllCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
-let runnersLargeSizeShirt = [];
+let runnersLargeSizeShirt = runners.filter(function(item){
+    return item.shirt_size === "L";
+});
 console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = 0;
+let ticketPriceTotal = runners.reduce(function(accumulator, item){
+  return accumulator + item.donation;
+}, 0);
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+// There has been a mixup with the location of the race. Make a new array of all the emails so you can inform the runners of the problem
+let emailArray = runners.map(function(emails){
+  return emails.email;
+})
+console.log(emailArray);
+//end of problem 1
 
 // Problem 2
+// The director needs the total of the average donation
 
+let averageDonation =function(){
+  return ticketPriceTotal / runners.length;
+}
+console.log(averageDonation())
 // Problem 3
+//The director miscalculated the amount of money it takes to run a race so he  wants a list of all people who donated less than $100 so he can ask them for a bigger donation
+let cheapRunners = runners.filter(function(item){
+  return item.donation < 100;
+});
+console.log(cheapRunners);
